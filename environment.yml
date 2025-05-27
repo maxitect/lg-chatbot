@@ -8,6 +8,7 @@ dependencies:
   - python=3.13.3\
   - langgraph=0.4.4
   - langsmith=0.3.39
+  - langchain=0.3.25
   - pip
   - pip:
       - autopep8
