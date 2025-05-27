@@ -16,8 +16,4 @@ graph_builder.add_edge(START, "chatbot")
 
 graph = graph_builder.compile()
 
-try:
-    display(Image(graph.get_graph().draw_mermaid_png()))
-except Exception:
-    # This requires some extra dependencies and is optional
-    pass
+print(graph.get_graph().draw_ascii())
