@@ -1,6 +1,6 @@
 # Lg Chatbot
 
-A basic chatbotngGraph
+A basic chatbot built using LangGraph
 
 ## Quick Start
 
