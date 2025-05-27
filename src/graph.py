@@ -1,10 +1,20 @@
-from langgraph.graph import StateGraph, START
+from langgraph.graph import StateGraph, START, END
 
+from edges import route_tools
+from nodes import chatbot, tool_node
 from models import State
-from nodes import chatbot
 
 graph_builder = StateGraph(State)
+
 graph_builder.add_node("chatbot", chatbot)
+graph_builder.add_node("tools", tool_node)
+
+graph_builder.add_conditional_edges(
+    "chatbot",
+    route_tools,
+    {"tools": "tools", END: END},
+)
+graph_builder.add_edge("tools", "chatbot")
 graph_builder.add_edge(START, "chatbot")
 
 graph = graph_builder.compile()
