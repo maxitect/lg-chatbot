@@ -6,6 +6,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.13.3
+  - ipython=9.1.0
   - python=dotenv-1.1.0
   - langgraph=0.4.4
   - langsmith=0.3.39
