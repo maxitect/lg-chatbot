@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "lg-chatbot"
 description = "A basic chatbotngGraph"
 authors = [
-    {username = "maxitect", email = "maxime.downe@gmail.com"}
+    {name = "maxitect", email = "maxime.downe@gmail.com"}
 ]
 dynamic = ["version"]
 readme = "README.md"
