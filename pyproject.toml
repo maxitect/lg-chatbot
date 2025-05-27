@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lg-chatbot"
-description = "A basic chatbotngGraph"
+description = "A basic chatbot built using LangGraph"
 authors = [
     {name = "maxitect", email = "maxime.downe@gmail.com"}
 ]
