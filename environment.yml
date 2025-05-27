@@ -5,7 +5,9 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python=3.13.3
+  - python=3.13.3\
+  - langgraph=0.4.4
+  - langsmith=0.3.39
   - pip
   - pip:
       - autopep8
