@@ -1,7 +1,16 @@
-import os
-from dotenv import load_dotenv
-from langchain.chat_models import init_chat_model
+from graph import stream_graph_updates
 
-load_dotenv()
 
-llm = init_chat_model("openai:gpt-4.1-nano")
+while True:
+    try:
+        user_input = input("User: ")
+        if user_input.lower() in ["quit", "exit", "q"]:
+            print("Goodbye!")
+            break
+        stream_graph_updates(user_input)
+    except (EOFError, KeyboardInterrupt):
+        # fallback if input() is not available
+        user_input = "What do you know about LangGraph?"
+        print("User: " + user_input)
+        stream_graph_updates(user_input)
+        break
