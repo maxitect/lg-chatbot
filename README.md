@@ -1,4 +1,4 @@
-# Lg Chatbot
+# Basic LangGraph Chatbot
 
 A basic chatbot built using LangGraph
 
