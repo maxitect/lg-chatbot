@@ -7,6 +7,7 @@ while True:
         if user_input.lower() in ["quit", "exit", "q"]:
             print("Goodbye!")
             break
+        print("\033[A\033[K", end="")
         stream_graph_updates(user_input)
     except (EOFError, KeyboardInterrupt):
         # fallback if input() is not available

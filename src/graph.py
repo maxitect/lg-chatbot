@@ -32,6 +32,7 @@ def stream_graph_updates(user_input: str):
 
     for event in events:
         event["messages"][-1].pretty_print()
+        print()
 
 
 print(graph.get_graph().draw_ascii())
