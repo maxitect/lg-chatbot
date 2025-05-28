@@ -13,5 +13,9 @@ llm = init_chat_model("openai:gpt-4.1-nano")
 llm_with_tools = llm.bind_tools(tools)
 
 
-def chatbot(state: State):
+def chatbot_node(state: State):
     return {"messages": [llm_with_tools.invoke(state["messages"])]}
+
+
+def human_assistance_node(state: State):
+    return state
