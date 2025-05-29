@@ -14,8 +14,6 @@ llm_with_tools = llm.bind_tools(tools)
 
 
 def chatbot_node(state: State):
-    return {"messages": [llm_with_tools.invoke(state["messages"])]}
-
-
-def human_assistance_node(state: State):
-    return state
+    message = llm_with_tools.invoke(state["messages"])
+    assert (len(message.tool_calls) <= 1)
+    return {"messages": [message]}

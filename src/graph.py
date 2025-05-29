@@ -5,8 +5,6 @@ from langgraph.checkpoint.memory import MemorySaver
 from nodes import chatbot_node, tool_node
 from models import State
 
-memory = MemorySaver()
-
 graph_builder = StateGraph(State)
 
 graph_builder.add_node("chatbot", chatbot_node)
@@ -18,5 +16,7 @@ graph_builder.add_conditional_edges(
 )
 graph_builder.add_edge("tools", "chatbot")
 graph_builder.add_edge(START, "chatbot")
+
+memory = MemorySaver()
 
 graph = graph_builder.compile(checkpointer=memory)
