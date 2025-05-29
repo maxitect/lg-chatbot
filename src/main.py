@@ -1,10 +1,15 @@
 from langgraph.types import Command
+from langchain_core.messages import HumanMessage
 from graph import graph
 
 
 def stream_graph_updates(user_input: str):
     config = {"configurable": {"thread_id": "1"}}
     cmd = {"messages": [{"role": "user", "content": user_input}]}
+
+    user_message = HumanMessage(content=user_input)
+    user_message.pretty_print()
+    print()
 
     while True:
         events = graph.stream(cmd, config, stream_mode="updates")
@@ -19,6 +24,7 @@ def stream_graph_updates(user_input: str):
                 for node_name, node_data in event.items():
                     if "messages" in node_data:
                         node_data["messages"][-1].pretty_print()
+                        print()
         else:
             break
 
@@ -29,6 +35,7 @@ while True:
         if user_input.lower() in ["quit", "exit", "q"]:
             print("Goodbye!")
             break
+        print("\033[A\033[K", end="")
         stream_graph_updates(user_input)
     except (EOFError, KeyboardInterrupt):
         user_input = "What do you know about LangGraph?"
