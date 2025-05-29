@@ -6,10 +6,10 @@ from models import State
 from tools import tools
 
 load_dotenv()
+llm = init_chat_model("openai:gpt-4.1-nano")
 
 tool_node = ToolNode(tools)
 
-llm = init_chat_model("openai:gpt-4.1-nano")
 llm_with_tools = llm.bind_tools(tools)
 
 
